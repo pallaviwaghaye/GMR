@@ -7,8 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-
-import com.webakruti.gmr.model.CallEntry;
+import com.webakruti.gmr.model.GMREntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,7 @@ public class DatabaseManager {
 
     //Inserting/Deleting/Updating/Fetching Data From UI to DB : Methods - start
 
-    public synchronized long insertCallEntryDetails(CallEntry callEntry) {
+    public synchronized long insertCallEntryDetails(GMREntry gmrEntry) {
         long result = 0;
         try {
             if (database == null) {
@@ -58,14 +57,12 @@ public class DatabaseManager {
                     DatabaseConstants.CallDatabaseEntry.COLUMN_TIME_STAMP + TEXT_TYPE +
              */
             ContentValues values = new ContentValues();
-            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_NAME, callEntry.getName());
-            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_EMAIL, callEntry.getEmailId());
-            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_PHONE_NUMBER, callEntry.getPhoneNumber());
-            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_QUERY, callEntry.getQuery());
-            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_TIME_STAMP, callEntry.getTimeStamp());
+            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_MACHINE_CODE, gmrEntry.getMcode());
+            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_MACHINE_NAME, gmrEntry.getMname());
+            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_TIMEDATE, gmrEntry.getTimedate());
+            values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_MACHINE_READING, gmrEntry.getMreading());
 
-
-            result = database.insert(DatabaseConstants.CallDatabaseEntry.TABLE_NAME_CALL_ENTRY, null, values);
+            result = database.insert(DatabaseConstants.CallDatabaseEntry.TABLE_NAME, null, values);
             close();
         } catch (Exception ex) {
 
@@ -73,13 +70,13 @@ public class DatabaseManager {
         return result;
     }
 
-    public synchronized List<CallEntry> getAllCallEntries() {
+    public synchronized List<GMREntry> getAllEntries() {
         if (database == null) {
             open();
         }
-        List<CallEntry> detailsList = new ArrayList<CallEntry>();
+        List<GMREntry> detailsList = new ArrayList<GMREntry>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + DatabaseConstants.CallDatabaseEntry.TABLE_NAME_CALL_ENTRY;
+        String selectQuery = "SELECT  * FROM " + DatabaseConstants.CallDatabaseEntry.TABLE_NAME;
         Cursor cursor = database.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -91,13 +88,13 @@ public class DatabaseManager {
             values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_TIME_STAMP, callEntry.getTimeStamp());
             values.put(DatabaseConstants.CallDatabaseEntry.COLUMN_QUERY, callEntry.getQuery());
                  */
-                CallEntry category = new CallEntry();
-                category.setCallId(Integer.parseInt(cursor.getString(0)));
-                category.setName(cursor.getString(1));
-                category.setEmailId(cursor.getString(2));
-                category.setPhoneNumber(cursor.getString(3));
-                category.setQuery(cursor.getString(4));
-                category.setTimeStamp(cursor.getString(5));
+                GMREntry category = new GMREntry();
+                category.setId(Integer.parseInt(cursor.getString(0)));
+                category.setMcode(cursor.getString(1));
+                category.setMname(cursor.getString(2));
+                category.setTimedate(cursor.getString(3));
+                category.setMreading(cursor.getString(4));
+
 
                 detailsList.add(category);
             } while (cursor.moveToNext());
@@ -106,13 +103,13 @@ public class DatabaseManager {
         return detailsList;
     }
 
-    public synchronized int deleteCallEntry(int callId) {
+    public synchronized int deleteEntry(int id) {
         int result = 0;
         if (database == null) {
             open();
         }
-        String tableName = DatabaseConstants.CallDatabaseEntry.TABLE_NAME_CALL_ENTRY;
-        String where = "callId='" + callId + "'";
+        String tableName = DatabaseConstants.CallDatabaseEntry.TABLE_NAME;
+        String where = "id='" + id + "'";
 
         result = database.delete(tableName, where, null);
         Log.i(TAG, " deleteTableRow Deleted rows count: " + result);

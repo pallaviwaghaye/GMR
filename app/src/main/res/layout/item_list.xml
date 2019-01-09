@@ -15,66 +15,119 @@
         <android.support.v7.widget.CardView
             android:id="@+id/cardViewEvent"
             android:layout_width="fill_parent"
-            android:layout_height="270dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="7dp"
             app:cardBackgroundColor="@color/white"
             app:cardElevation="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewTimeDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Date"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Code : "
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="30dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
                 <TextView
                     android:id="@+id/textViewMcCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="MachineCode"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text=""
                     android:textAlignment="center"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/mid_blue"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Name : "
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="30dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
                 <TextView
                     android:id="@+id/textViewMcName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Machine Name"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text=""
                     android:textAlignment="center"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/mid_blue"
                     android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/textViewTimeDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="TimeDate"
+                    android:text="Machine Reading : "
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:textAlignment="center"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/textViewMcReading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Machine Reading"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text=""
                     android:textAlignment="center"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/mid_blue"
                     android:textSize="15sp" />
 
+            </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal">
 
-
+                    <ImageView
+                        android:id="@+id/imageViewDelete"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/delete" />
+                </LinearLayout>
 
             </LinearLayout>
 

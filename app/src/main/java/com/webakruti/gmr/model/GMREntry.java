@@ -1,17 +1,66 @@
 package com.webakruti.gmr.model;
 
 
-public class CallEntry {
+public class GMREntry {
 
-    int callId;
-    String name;
-    String phoneNumber;
-    String emailId;
-    String query;
-    String timeStamp;
+    int id;
+    String mcode;
+    String mname;
+    String timedate;
+    String mreading;
 
+    public GMREntry() {
+    }
 
-    public CallEntry() {
+    public GMREntry(int id, String mcode, String mname, String timedate, String mreading) {
+        this.id = id;
+        this.mcode = mcode;
+        this.mname = mname;
+        this.timedate = timedate;
+        this.mreading = mreading;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMcode() {
+        return mcode;
+    }
+
+    public void setMcode(String mcode) {
+        this.mcode = mcode;
+    }
+
+    public String getMname() {
+        return mname;
+    }
+
+    public void setMname(String mname) {
+        this.mname = mname;
+    }
+
+    public String getTimedate() {
+        return timedate;
+    }
+
+    public void setTimedate(String timedate) {
+        this.timedate = timedate;
+    }
+
+    public String getMreading() {
+        return mreading;
+    }
+
+    public void setMreading(String mreading) {
+        this.mreading = mreading;
+    }
+
+    /*public CallEntry() {
     }
 
     public CallEntry(int callId, String name, String phoneNumber, String emailId, String query, String timeStamp) {
@@ -69,5 +118,5 @@ public class CallEntry {
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
-    }
+    }*/
 }

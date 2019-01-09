@@ -38,8 +38,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_vertical"
                         android:padding="5dp"
-                        android:src="@drawable/action_back"
-                        android:visibility="gone"/>
+                        android:src="@drawable/action_back" />
 
                     <TextView
                         android:id="@+id/textViewTitle"
@@ -48,7 +47,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:gravity="left"
-                        android:text="GMR"
+                        android:text="Save Machine"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
@@ -79,14 +78,27 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:src="@drawable/gmr_logo" />
+
+            <TextView
+                android:id="@+id/textViewScannedData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Scanned Data"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:visibility="gone"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_margin="10dp"
                     >
 
                     <TextView
@@ -94,30 +106,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
                         android:text="Machine Code : "
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/textViewMcode"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/edittextMcode"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="TimeDate"
-                        android:textAlignment="center"
-                        android:textColor="@color/blue"
-                        android:textSize="15sp" />
+                        android:hint="Enter code"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:enabled="false"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_margin="10dp"
                     >
 
                     <TextView
@@ -125,30 +134,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
                         android:text="Machine Name : "
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/textViewMname"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/edittextMname"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="abcd"
-                        android:textAlignment="center"
-                        android:textColor="@color/blue"
-                        android:textSize="15sp" />
+                        android:hint="Enter name"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:enabled="false"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
                     >
 
                     <TextView
@@ -156,30 +163,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
                         android:text="Time and date : "
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/textViewMtimedate"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/edittextMtimedate"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="TimeDate"
-                        android:textAlignment="center"
+                        android:hint="Enter date"
                         android:textColor="@color/blue"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_margin="10dp"
                     >
 
                     <TextView
@@ -187,24 +189,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
                         android:text="Machine Reading : "
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/textViewMreading"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/edittextMreading"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="1342552"
-                        android:textAlignment="center"
-                        android:textColor="@color/blue"
-                        android:textSize="15sp" />
+                        android:hint="Enter reading"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
                 </LinearLayout>
 
 

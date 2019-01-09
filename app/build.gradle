@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "com.webakruti.gmr"
         minSdkVersion 15
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,19 +21,28 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    //implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.android.support:support-v4:27.0.2'
-    compile 'com.android.support:design:27.0.2'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:support-v4:27.1.1'
+    compile 'com.android.support:design:27.1.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:cardview-v7:27.0.2'
+    compile 'com.android.support:cardview-v7:27.1.1'
 
     compile 'gun0912.ted:tedpermission:1.0.3'
 
-    compile 'com.google.android.gms:play-services:7.8+'
+    //compile 'com.google.android.gms:play-services:7.8+'
 
-    compile 'me.dm7.barcodescanner:zbar:1.8.4'
+    //compile 'me.dm7.barcodescanner:zbar:1.8.4'
 
+    compile 'com.google.zxing:core:3.2.1'
+    compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+
+    compile 'com.google.android.gms:play-services:9.8.0'
+
+    //implementation 'com.journeyapps:zxing-android-integration:3.2.0@aar'
+
+    /*implementation 'com.journeyapps:zxing-android-embedded:3.0.1@aar'
+    implementation 'com.google.zxing:core:3.2.0'*/
 }
