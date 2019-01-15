@@ -11,6 +11,10 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CameraActivity extends AppCompatActivity implements View.OnClickListener{
    // private ImageView imageViewBack;
     private Button buttonScan;
@@ -53,16 +57,15 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(CameraActivity.this, ScanBarcodeActivity.class);
                 startActivity(intent);
                 finish();
-/*
-                IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
+                /*IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrator.setPrompt("Scan QR Code");
                 integrator.setBeepEnabled(false);
                 integrator.setCameraId(0);
                 integrator.setBarcodeImageEnabled(false);
                 integrator.setOrientationLocked(false);
-                integrator.initiateScan();*/
-
+                integrator.initiateScan();
+*/
 
         }
     }
@@ -71,23 +74,40 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         IntentResult result=IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+
         if(result!=null)
         {
+
+
             scannedData = result.getContents();
             if(scannedData!=null)
             {
-                Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
+                *//*Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
                 intent.putExtra("scannedData",scannedData);
                 startActivity(intent);
-                finish();
+                finish();*//*
+                try {
+                    JSONObject object = new JSONObject(result.getContents());
+                    String mcode = object.getString("machineCode");
+                    String mname = object.getString("machineName");
+                    Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
+                    intent.putExtra("machineCode", mcode);
+                    intent.putExtra("machineName", mname);
+
+                    intent.putExtra("barcodeData", scannedData);
+                    startActivity(intent);
+                    finish();
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }else{
                 Toast.makeText(CameraActivity.this,"No data found!!",Toast.LENGTH_SHORT).show();
             }
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-    }*/
-
+    }
+*/
     @Override
     public void onBackPressed() {
         super.onBackPressed();

@@ -31,14 +31,16 @@
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden"></activity>
         -->
-        <activity
-            android:name=".CameraActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".CameraActivity"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SaveBarcodeDataActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".ScanBarcodeActivity"></activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
 
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
