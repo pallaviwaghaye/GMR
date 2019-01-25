@@ -3,6 +3,7 @@ package com.webakruti.gmr;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,7 +28,11 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-       /* imageViewBack = (ImageView)findViewById(R.id.imageViewBack);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        /*imageViewBack = (ImageView)findViewById(R.id.imageViewBack);
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,23 +59,30 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
 
             case R.id.buttonScan:
-                Intent intent = new Intent(CameraActivity.this, ScanBarcodeActivity.class);
+                /*Intent intent = new Intent(CameraActivity.this, ScanBarcodeActivity.class);
                 startActivity(intent);
-                finish();
-                /*IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
+                finish();*/
+
+               // new IntentIntegrator(CameraActivity.this).setCaptureActivity(ScannerActivity.class).initiateScan();
+                IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
+                integrator.setCaptureActivity(ScannerActivity.class);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrator.setPrompt("Scan QR Code");
                 integrator.setBeepEnabled(false);
+                //used to open back camera while scanning
                 integrator.setCameraId(0);
+                //used to open front camera while scanning
+                //integrator.setCameraId(1);
                 integrator.setBarcodeImageEnabled(false);
                 integrator.setOrientationLocked(false);
+               // integrator.setCaptureLayout(R.layout.custom_layout);
                 integrator.initiateScan();
-*/
 
         }
     }
 
-   /* @Override
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         IntentResult result=IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
@@ -78,14 +90,13 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         if(result!=null)
         {
 
-
             scannedData = result.getContents();
             if(scannedData!=null)
             {
-                *//*Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
+                /*Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
                 intent.putExtra("scannedData",scannedData);
                 startActivity(intent);
-                finish();*//*
+                finish();*/
                 try {
                     JSONObject object = new JSONObject(result.getContents());
                     String mcode = object.getString("machineCode");
@@ -107,7 +118,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
         super.onActivityResult(requestCode, resultCode, data);
     }
-*/
     @Override
     public void onBackPressed() {
         super.onBackPressed();
