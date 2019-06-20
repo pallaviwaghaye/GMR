@@ -54,10 +54,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
 
             case R.id.buttonScan:
-                /*Intent intent = new Intent(CameraActivity.this, ScanBarcodeActivity.class);
+                Intent intent = new Intent(CameraActivity.this, ScanBarcodeActivity.class);
                 startActivity(intent);
-                finish();*/
-                IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
+                finish();
+                /*IntentIntegrator integrator = new IntentIntegrator(CameraActivity.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrator.setPrompt("Scan QR Code");
                 integrator.setBeepEnabled(false);
@@ -68,12 +68,12 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 integrator.setBarcodeImageEnabled(false);
                 integrator.setOrientationLocked(false);
                // integrator.setCaptureLayout(R.layout.custom_layout);
-                integrator.initiateScan();
+                integrator.initiateScan();*/
 
         }
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         IntentResult result=IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
@@ -85,10 +85,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             scannedData = result.getContents();
             if(scannedData!=null)
             {
-                /*Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
+                *//*Intent intent = new Intent(CameraActivity.this, SaveBarcodeDataActivity.class);
                 intent.putExtra("scannedData",scannedData);
                 startActivity(intent);
-                finish();*/
+                finish();*//*
                 try {
                     JSONObject object = new JSONObject(result.getContents());
                     String mcode = object.getString("machineCode");
@@ -109,7 +109,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-    }
+    }*/
     @Override
     public void onBackPressed() {
         super.onBackPressed();

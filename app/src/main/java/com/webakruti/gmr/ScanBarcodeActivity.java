@@ -71,7 +71,7 @@ public class ScanBarcodeActivity extends AppCompatActivity {
         });
 
         barcodeDetector = new BarcodeDetector.Builder(this)
-                .setBarcodeFormats(Barcode.ALL_FORMATS)
+                .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
 
         cameraSource = new CameraSource
